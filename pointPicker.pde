@@ -13,6 +13,8 @@ Click to add point to current set, press n to start a new set and s to save to f
 ArrayList<PointCollection> pointCollections;
 PointCollection currentPc;
 
+ArrayList<Block> blocks;
+
 void setup() {
   size(700,700);
   background(255);
@@ -24,10 +26,18 @@ void setup() {
   PointCollection p = new PointCollection(color(0, 255, 188));
   pointCollections.add(p);
   currentPc = p;
+  
+  blocks = new ArrayList<Block>();
+  loadBlocks(blocks);
 }
 
 void draw() {
   background(255);
+  
+  for(int i = 0; i < blocks.size(); i++) {
+      Block b = blocks.get(i);
+      b.display();
+    }
   
   for(PointCollection p : pointCollections) {
     p.display();

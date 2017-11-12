@@ -29,8 +29,11 @@ class PointCollection {
     for(PVector p : points) {
       output = output + p.x + " " + p.y + ",";
     }
-    //remove excess comma at the end
-    output = output.substring(0, output.length() -1);
+    //remove excess comma at the end if exists
+    if (output.length() > 0) {
+      output = output.substring(0, output.length() -1);
+    }
+    
     return output;
   }
 }
